@@ -1,0 +1,342 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(./img/sfondo3.png) no-repeat;
+    background-size: cover;                               /*copre in maniera corretta solo il body*/
+    background-position: center;
+    background-attachment: fixed;
+    height: auto;             /*o 100%*/
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;           /* Quando un elemento ha una posizione fissa (fixed), viene rimosso dal flusso normale del documento e posizionato rispetto al viewport del browser anziché rispetto al resto del contenuto della pagina. Ciò potrebbe causare sovrapposizioni con altri elementi, come nel tuo caso con il primo <section>.*/
+    width: 100%;
+    top: 0;                     /* lo mette in cima senza lasciare spazi*/
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);       /*per rendere sfocato lo sfondo*/
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;                 /*per centrare verticalemente gli elementi all'interno della navbar, è apposta per la navbar*/
+}
+
+nav ul {
+    /* list-style-type: none; */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+    padding: 0 13px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    transition: transform 0.2s linear;
+    transform: scaleX(0);
+    position: relative; /* Assicurati che l'elemento sia posizionato in modo relativo */
+}
+
+nav ul li a:before {
+    content: ''; /* Contenuto vuoto necessario per abilitare lo pseudo-elemento */
+    position: absolute; /* Posizione assoluta rispetto all'elemento padre */
+    bottom: 0; /* Posizioniamo il pseudo-elemento sotto il testo */
+    left: 0;
+    width: 100%; /* Estendiamo il pseudo-elemento sull'intera larghezza dell'elemento padre */
+    height: 2px; /* Altezza desiderata della linea di transizione */
+    background-color: white; /* Colore della linea di transizione */
+    transform: scaleX(0); /* Inizialmente nascosto */
+    transition: transform 0.2s linear; /* Transizione simile a quella dell'elemento principale */
+}
+
+/*La proprietà content è ciò che determina cosa sarà visualizzato dall'elemento pseudo. Quando viene impostata su una stringa vuota '', l'elemento pseudo sarà visualizzato come vuoto ma comunque presente nel DOM, consentendo di applicare stili e posizionarlo come desiderato.
+
+In sintesi, senza content: '';, l'elemento pseudo non avrebbe contenuto e quindi non sarebbe visibile.*/
+
+nav ul li a:hover:before {
+    transform: scaleX(1); /* Quando passi il mouse sopra l'elemento, la linea si estende */
+}
+
+
+.logo{
+    font-size: 2rem;
+}
+
+.registrati{
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.registrati a{
+    color: white;
+}
+
+.registrati:hover{
+    background-color: blue;
+    border-radius: 8px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+}
+
+/* #progetto {
+    
+} */
+
+.sezione-sotto-navbar{
+    margin-top: 100px; /* Imposta il margine superiore a 100px, cosi da non sovrapporsi alla navbar fixed */
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.h1Ep{
+    justify-content: center;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.h1Ep h1{
+    font-size: 40px;
+}
+
+.h1Ep p{
+    font-size: medium;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 15px;
+}
+
+.h1Pimg{
+    align-items: center;
+}
+
+
+.sezione-sotto-navbar span{
+    font-weight: 600;
+    color: #fca61f;
+}
+
+.bottoni {
+    margin: 2rem;
+    display: flex;
+    justify-content: center; 
+    margin-top: 3rem;  
+}
+
+.bottoni button{                           /*deve selezionare classe e anche elemento*/
+    width: 160px;
+    margin: 0 10px;
+    border-radius: 20px;
+    background-color: #fca61f;
+    color: white;
+    border: none;
+    transform: 0.2s linear;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+}
+
+.bottoni button:hover{
+    box-shadow: 2px 2px 30px #fca61f;        /*fa una shadow quando passo sopra col mouse*/
+    cursor: pointer;
+}
+
+.bottone1{
+    background: linear-gradient(#e66465, #9198e5);
+}
+
+.sezioni section{
+    
+    /* justify-content: center; */
+    width: 50%;    
+    /* text-align: center; */
+}
+
+.sezioni {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+section{
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: -2px 2px 4px rgba(57, 57, 57, 0.3), 2px 2px 4px rgba(57, 57, 57, 0.3), 0 5px 10px rgba(57, 57, 57, 0.3);
+    padding: 50px;
+    background-color: white;
+    color: black;
+    margin: 30px 0;
+    margin-top: 80px;
+}
+
+section#progetto{
+    border-radius: 10% 8px;
+}
+
+section:hover{
+    transform: scale(1.1);
+    /* border-radius: 20% 10%; */
+    transition: 0.5s;
+    cursor: pointer;
+    border-color: #fca61f;
+    background: linear-gradient(180deg, #ffffff, #fca61f);
+    box-shadow: 2px 2px 30px #b837ab; 
+}
+
+section svg{
+    margin-top: -15px;
+}
+
+.nav-item{
+    font-weight: 500;
+}
+
+.nav-item:hover{
+    transform: scaleY(1.1);
+}
+
+/*prograss bar animation*/
+.progress-bar{
+    height: 35px;
+    border-radius: 30px;
+    box-shadow: 0 3px 3px rgb(36, 3, 42);
+    animation: html 4s ease-in-out forwards;
+    transition: width 0.5s ease; /* transizione fluida */
+}
+
+
+
+@media (min-width: 1261px) {
+    .we.navbar{
+         display: none; 
+        /* visibility: hidden; */
+    
+    }
+    .nav1 ul{
+        margin-bottom: 0;
+    }
+ }
+
+@media (max-width:1200px){
+    .sezione-sotto-navbar{
+        display: flex;
+        width: 60%;
+        flex-direction: column-reverse;
+        margin-top: 160px;
+    }
+
+    #progetto{
+        margin-top: 0px;
+    }
+}
+
+/* @media (max-width:1200px){
+    .sezione-sotto-navbar{
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+} */
+
+
+.menu-toggle {
+    display: none; /* Nascondi di default */
+}
+
+nav ul.show {
+    display: block;
+}
+
+@media (max-width: 1260px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        display: none; /* Nascondi il menu della navbar */
+    }
+
+    .registrati{
+        display: none;
+    }
+
+    .fas.fa-bars {
+        display: block; /* Mostra l'icona dell'hamburger */
+        font-size: 24px !important; /* Modifica la dimensione dell'icona */
+    }
+
+    .fas.fa-bars:hover{
+        transform: scale(1.1);
+    }
+
+    /*bootstrap*/
+
+    .nav1{
+        display: none;
+    }
+
+    header{
+        padding: 10px;
+    }
+      
+
+    /* .navbar-toggler {
+        display: flex !important;
+      }
+      .navbar-collapse {
+        display: none !important;
+      }
+      .navbar-collapse.show {
+        display: block !important;
+      } */
+
+    /* .fas.fa-bars.is-active:before{
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+
+    .fas.fa-bars.is-active:after{
+        transform: rotate(-45deg) translate(-7px, -9px);
+    } */
+        
+}
+
+
+
